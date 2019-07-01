@@ -31,12 +31,12 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <constraints>
                             <constraint firstItem="Dla-2n-XFL" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="100" id="Jde-AC-fnY"/>
-                            <constraint firstAttribute="trailing" secondItem="Dla-2n-XFL" secondAttribute="trailing" constant="20" id="MwE-OX-p9V"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Dla-2n-XFL" secondAttribute="trailing" constant="20" id="MwE-OX-p9V"/>
                             <constraint firstItem="ahh-vE-sa1" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="cF2-QI-cE0"/>
                             <constraint firstItem="ahh-vE-sa1" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="cuu-wr-cIP"/>
                             <constraint firstItem="Dla-2n-XFL" firstAttribute="top" secondItem="ahh-vE-sa1" secondAttribute="bottom" constant="60" id="dqf-9N-GBQ"/>
                             <constraint firstItem="ahh-vE-sa1" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="g0N-iy-L2d"/>
-                            <constraint firstItem="Dla-2n-XFL" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="20" id="kPe-lg-mux"/>
+                            <constraint firstItem="Dla-2n-XFL" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="20" id="kPe-lg-mux"/>
                             <constraint firstItem="Dla-2n-XFL" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="rmi-fL-zej"/>
                             <constraint firstItem="ahh-vE-sa1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="yxh-dr-eER"/>
                         </constraints>
