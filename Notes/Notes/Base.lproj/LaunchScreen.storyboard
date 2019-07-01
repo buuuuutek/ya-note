@@ -1,7 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,15 +15,40 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NOTES" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="Dla-2n-XFL">
+                                <rect key="frame" x="20" y="453.66666666666674" width="374" height="189"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="150"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="colorful-pencil-icon" translatesAutoresizingMaskIntoConstraints="NO" id="ahh-vE-sa1">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="393.66666666666669"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <constraints>
+                            <constraint firstItem="Dla-2n-XFL" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="100" id="Jde-AC-fnY"/>
+                            <constraint firstAttribute="trailing" secondItem="Dla-2n-XFL" secondAttribute="trailing" constant="20" id="MwE-OX-p9V"/>
+                            <constraint firstItem="ahh-vE-sa1" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="cF2-QI-cE0"/>
+                            <constraint firstItem="ahh-vE-sa1" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="cuu-wr-cIP"/>
+                            <constraint firstItem="Dla-2n-XFL" firstAttribute="top" secondItem="ahh-vE-sa1" secondAttribute="bottom" constant="60" id="dqf-9N-GBQ"/>
+                            <constraint firstItem="ahh-vE-sa1" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="g0N-iy-L2d"/>
+                            <constraint firstItem="Dla-2n-XFL" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="20" id="kPe-lg-mux"/>
+                            <constraint firstItem="Dla-2n-XFL" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="rmi-fL-zej"/>
+                            <constraint firstItem="ahh-vE-sa1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="yxh-dr-eER"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="51.798561151079141" y="374.8743718592965"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="colorful-pencil-icon" width="341.33334350585938" height="341.33334350585938"/>
+    </resources>
 </document>
