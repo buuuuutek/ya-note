@@ -1,3 +1,7 @@
+
+import Foundation
+
+
 class FileNotebook {
     
     /// Коллекция заметок в записной книжке
