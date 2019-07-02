@@ -16,7 +16,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        print(getConfigurationName() + " configuration was powered.")
+        print(getServerConfigurationURLDescription())
         return true
+    }
+    
+    /// Возвращает наименование запущенной конфигурации
+    private func getConfigurationName() -> String {
+        
+        // Добавлена новая конфигурация "ADHOC", произведенная дублированием конфигурации "DEBUG".
+        // Это сделано с целью быстрой проверки задания. Для тестирования необходимо просто запустить приложение.
+        // (В "боевом" проекте правильнее было бы дублировать конфигурацию "RELEASE", поскольку
+        // это был бы облегченный проект и ближе к пользователю).
+        
+        #if ADHOC
+            return "ADHOC"
+        #elseif DEBUG
+            return "DEBUG"
+        #else
+            return "RELEASE"
+        #endif
+    }
+    
+    /// Возвращает URL сервера по конфигурации приложения
+    private func getServerConfigurationURLDescription() -> String {
+        
+        // Свойство ServerConfigurationURL задано в Info.plist файле.
+        // В зависимости от запущенной конфигурации выдаётся (вымышленный) URL для подключения к серверу.
+        //
+        // Например, adhoc.notes.yandex.ru, если запущено под конфигурацией Adhoc.
+        
+        guard let serverConfigurationURL = Bundle.main.infoDictionary?["ServerConfigurationURL"] as? String else {
+            return "Server configuration URL wasn't set."
+        }
+        
+        return "For this configuration will use '\(serverConfigurationURL)' URL."
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
