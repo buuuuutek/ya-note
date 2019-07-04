@@ -10,6 +10,7 @@ enum Importance: Int {
 
 }
 
+
 struct Note {
  
     let uid: String

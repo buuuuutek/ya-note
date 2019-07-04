@@ -1,6 +1,6 @@
 
 import Foundation
-
+import CocoaLumberjack
 
 class FileNotebook {
     
@@ -23,6 +23,7 @@ class FileNotebook {
     
     /// Добавить заметку в записную книжку
     func add(_ note: Note) {
+        removeIfNeeded(note: note)
         notes.append(note)
     }
     
@@ -38,7 +39,7 @@ class FileNotebook {
         checkCachesDirectory()
         
         guard let serializatedNotes = serializeNotes() else {
-            print("Serialization data is empty")
+            DDLogError("Serialization data is empty")
             return
         }
         
@@ -49,12 +50,12 @@ class FileNotebook {
     /// Загрузить записную книжку из файла
     func loadFromFile() {
         guard notebookFileExist() else {
-            print("File .notebook is not exist")
+            DDLogError("File .notebook is not exist")
             return
         }
         
         guard let loadedSerializedNotes = loadContentFromFile() else {
-            print("Content was loaded with fail")
+            DDLogError("Content was loaded with fail")
             return
         }
         
@@ -66,13 +67,21 @@ class FileNotebook {
     
     
     
+    /// Если в массиве notes уже есть такая заметка, то удалить её
+    private func removeIfNeeded(note: Note) {
+        if notes.contains(where: {$0.uid == note.uid}) {
+            remove(with: note.uid)
+        }
+    }
+    
+    
     /// Создать папку .caches, если она не была создана ранее
     private func checkCachesDirectory() {
         if cachesDirectoryNotExist() {
-            print("Directory .caches does not exist")
+            DDLogError("Directory .caches does not exist")
             createCachesDirectory()
         }
-        print("Directory .caches exist")
+        DDLogDebug("Directory .caches exist")
     }
     
     
@@ -91,7 +100,7 @@ class FileNotebook {
     
     /// Создать папку .caches
     private func createCachesDirectory() {
-        print("Create new .cashes directory")
+        DDLogDebug("Create new .cashes directory")
         try? FileManager.default.createDirectory(atPath: cachesDirectoryPath.absoluteString, withIntermediateDirectories: true, attributes: nil)
     }
     
@@ -109,7 +118,7 @@ class FileNotebook {
             return try JSONSerialization.data(withJSONObject: jsons, options: [])
         }
         catch let error {
-            print(error.localizedDescription)
+            DDLogError(error.localizedDescription)
             return nil
         }
     }
@@ -121,7 +130,7 @@ class FileNotebook {
             let notesList = try JSONSerialization.jsonObject(with: data, options: [])
             
             guard let notesDictionary = notesList as? [[String: Any]] else {
-                print("Casting to Array<Dictionary<String, Any>> was failed")
+                DDLogError("Casting to Array<Dictionary<String, Any>> was failed")
                 return
             }
             
@@ -132,7 +141,7 @@ class FileNotebook {
             }
         }
         catch let error {
-            print(error.localizedDescription)
+            DDLogError(error.localizedDescription)
         }
     }
     

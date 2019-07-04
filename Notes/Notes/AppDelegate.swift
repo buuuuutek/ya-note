@@ -7,18 +7,27 @@
 //
 
 import UIKit
+import CocoaLumberjack
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    
     var window: UIWindow?
-
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        print(getConfigurationName() + " configuration was powered.")
-        print(getServerConfigurationURLDescription())
+        setOptionsForLogger()
+        DDLogInfo(getConfigurationName() + " configuration was powered.")
+        DDLogDebug(getServerConfigurationURLDescription())
         return true
+    }
+    
+    /// Установить настройки для логгера
+    private func setOptionsForLogger() {
+        // Будем использовать через os_log
+        DDLog.add(DDOSLogger.sharedInstance)
     }
     
     /// Возвращает наименование запущенной конфигурации

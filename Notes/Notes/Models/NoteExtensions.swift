@@ -23,11 +23,11 @@ extension Note {
     
     /// Функция разбора JSON
     static func parse(json: [String: Any]) -> Note? {
-        let uid = decodeString(from: json, forKey: "uid")
+        guard let uid = decodeString(from: json, forKey: "uid") else { return nil }
         
-        let title = decodeString(from: json, forKey: "title")
+        guard let title = decodeString(from: json, forKey: "title") else { return nil }
         
-        let content = decodeString(from: json, forKey: "content")
+        guard let content = decodeString(from: json, forKey: "content") else { return nil }
         
         let color = decodeColor(from: json, forKey: "color")
         
@@ -35,21 +35,14 @@ extension Note {
         
         let selfDestructionDate = decodeDate(from: json, forKey: "selfDestructionDate")
         
-        
-        // Чтобы не было дублирования, важно отслеживать пришёл ли уникальный идентификатор или нет.
-        // Остальные параметры не так важны для дедублирования.
-        if uid.isEmpty {
-            return Note(title: title, content: content, color: color, importance: importance, selfDestructionDate: selfDestructionDate)
-        } else {
-            return Note(uid: uid, title: title, content: content, color: color, importance: importance, selfDestructionDate: selfDestructionDate)
-        }
+        return Note(uid: uid, title: title, content: content, color: color, importance: importance, selfDestructionDate: selfDestructionDate)
     }
     
     
     /// Вычленение строки из json со всеми соответствующими проверками
-    private static func decodeString(from json: [String: Any], forKey key: String) -> String {
+    private static func decodeString(from json: [String: Any], forKey key: String) -> String? {
         guard let foundParameter = json[key], let stringParameter = foundParameter as? String else {
-            return String()
+            return nil
         }
         
         return stringParameter
