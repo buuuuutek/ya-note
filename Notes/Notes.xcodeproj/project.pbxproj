@@ -15,7 +15,11 @@
 		1079FB2022CA04860020316E /* FileNotebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1079FB1D22CA04860020316E /* FileNotebook.swift */; };
 		1079FB2122CA04860020316E /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1079FB1E22CA04860020316E /* Note.swift */; };
 		1079FB2222CA04860020316E /* NoteExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1079FB1F22CA04860020316E /* NoteExtensions.swift */; };
-		10C15DAD22CF834A007F5B0A /* NotesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C15DAC22CF834A007F5B0A /* NotesTests.swift */; };
+		108F289B22D100ED00ED70B7 /* TestNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108F289A22D100ED00ED70B7 /* TestNote.swift */; };
+		108F289D22D1125200ED70B7 /* Importance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108F289C22D1125200ED70B7 /* Importance.swift */; };
+		108F289F22D113A300ED70B7 /* TestImportance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108F289E22D113A300ED70B7 /* TestImportance.swift */; };
+		108F28A122D1158F00ED70B7 /* TestNoteExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108F28A022D1158F00ED70B7 /* TestNoteExtensions.swift */; };
+		108F28A322D115AC00ED70B7 /* TestFileNotebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108F28A222D115AC00ED70B7 /* TestFileNotebook.swift */; };
 		10C15DB622CF8397007F5B0A /* Unit-tests.strings in Resources */ = {isa = PBXBuildFile; fileRef = 10C15DB522CF8397007F5B0A /* Unit-tests.strings */; };
 		5B8849096E2E7ACD501871A6 /* libPods-Notes.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2B7B7E80228A30378B12725 /* libPods-Notes.a */; };
 		D4C5E634FDE592E4968C2276 /* libPods-NotesTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 339603FB159DD61D1E697157 /* libPods-NotesTests.a */; };
@@ -42,8 +46,12 @@
 		1079FB1D22CA04860020316E /* FileNotebook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileNotebook.swift; sourceTree = "<group>"; };
 		1079FB1E22CA04860020316E /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		1079FB1F22CA04860020316E /* NoteExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteExtensions.swift; sourceTree = "<group>"; };
+		108F289A22D100ED00ED70B7 /* TestNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestNote.swift; sourceTree = "<group>"; };
+		108F289C22D1125200ED70B7 /* Importance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Importance.swift; sourceTree = "<group>"; };
+		108F289E22D113A300ED70B7 /* TestImportance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestImportance.swift; sourceTree = "<group>"; };
+		108F28A022D1158F00ED70B7 /* TestNoteExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestNoteExtensions.swift; sourceTree = "<group>"; };
+		108F28A222D115AC00ED70B7 /* TestFileNotebook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFileNotebook.swift; sourceTree = "<group>"; };
 		10C15DAA22CF834A007F5B0A /* NotesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NotesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		10C15DAC22CF834A007F5B0A /* NotesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTests.swift; sourceTree = "<group>"; };
 		10C15DAE22CF834A007F5B0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		10C15DB522CF8397007F5B0A /* Unit-tests.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = "Unit-tests.strings"; sourceTree = "<group>"; };
 		2080AD3A897359CB58ECFC7D /* Pods-NotesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NotesTests/Pods-NotesTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -116,6 +124,7 @@
 				1079FB1D22CA04860020316E /* FileNotebook.swift */,
 				1079FB1E22CA04860020316E /* Note.swift */,
 				1079FB1F22CA04860020316E /* NoteExtensions.swift */,
+				108F289C22D1125200ED70B7 /* Importance.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -123,9 +132,12 @@
 		10C15DAB22CF834A007F5B0A /* NotesTests */ = {
 			isa = PBXGroup;
 			children = (
-				10C15DAC22CF834A007F5B0A /* NotesTests.swift */,
-				10C15DAE22CF834A007F5B0A /* Info.plist */,
+				108F289A22D100ED00ED70B7 /* TestNote.swift */,
+				108F289E22D113A300ED70B7 /* TestImportance.swift */,
+				108F28A022D1158F00ED70B7 /* TestNoteExtensions.swift */,
+				108F28A222D115AC00ED70B7 /* TestFileNotebook.swift */,
 				10C15DB522CF8397007F5B0A /* Unit-tests.strings */,
+				10C15DAE22CF834A007F5B0A /* Info.plist */,
 			);
 			path = NotesTests;
 			sourceTree = "<group>";
@@ -298,6 +310,7 @@
 				1079FB2022CA04860020316E /* FileNotebook.swift in Sources */,
 				1079FB0D22CA03E20020316E /* ViewController.swift in Sources */,
 				1079FB2222CA04860020316E /* NoteExtensions.swift in Sources */,
+				108F289D22D1125200ED70B7 /* Importance.swift in Sources */,
 				1079FB0B22CA03E20020316E /* AppDelegate.swift in Sources */,
 				1079FB2122CA04860020316E /* Note.swift in Sources */,
 			);
@@ -307,7 +320,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				10C15DAD22CF834A007F5B0A /* NotesTests.swift in Sources */,
+				108F28A122D1158F00ED70B7 /* TestNoteExtensions.swift in Sources */,
+				108F289B22D100ED00ED70B7 /* TestNote.swift in Sources */,
+				108F28A322D115AC00ED70B7 /* TestFileNotebook.swift in Sources */,
+				108F289F22D113A300ED70B7 /* TestImportance.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

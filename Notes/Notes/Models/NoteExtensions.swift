@@ -1,6 +1,12 @@
+//
+//  NoteExtensions.swift
+//  Notes
+//
+//  Created by Волнухин Виктор on 24/06/2019.
+//  Copyright © 2019 Волнухин Виктор. All rights reserved.
+//
 
 import UIKit
-
 
 extension Note {
     
