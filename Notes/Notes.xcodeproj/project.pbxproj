@@ -20,7 +20,6 @@
 		108F289F22D113A300ED70B7 /* TestImportance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108F289E22D113A300ED70B7 /* TestImportance.swift */; };
 		108F28A122D1158F00ED70B7 /* TestNoteExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108F28A022D1158F00ED70B7 /* TestNoteExtensions.swift */; };
 		108F28A322D115AC00ED70B7 /* TestFileNotebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108F28A222D115AC00ED70B7 /* TestFileNotebook.swift */; };
-		10C15DB622CF8397007F5B0A /* Unit-tests.strings in Resources */ = {isa = PBXBuildFile; fileRef = 10C15DB522CF8397007F5B0A /* Unit-tests.strings */; };
 		5B8849096E2E7ACD501871A6 /* libPods-Notes.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2B7B7E80228A30378B12725 /* libPods-Notes.a */; };
 		D4C5E634FDE592E4968C2276 /* libPods-NotesTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 339603FB159DD61D1E697157 /* libPods-NotesTests.a */; };
 /* End PBXBuildFile section */
@@ -53,7 +52,6 @@
 		108F28A222D115AC00ED70B7 /* TestFileNotebook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFileNotebook.swift; sourceTree = "<group>"; };
 		10C15DAA22CF834A007F5B0A /* NotesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NotesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		10C15DAE22CF834A007F5B0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		10C15DB522CF8397007F5B0A /* Unit-tests.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = "Unit-tests.strings"; sourceTree = "<group>"; };
 		2080AD3A897359CB58ECFC7D /* Pods-NotesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NotesTests/Pods-NotesTests.release.xcconfig"; sourceTree = "<group>"; };
 		339603FB159DD61D1E697157 /* libPods-NotesTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NotesTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BBF84979A57610145534D33 /* Pods-Notes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Notes.release.xcconfig"; path = "Pods/Target Support Files/Pods-Notes/Pods-Notes.release.xcconfig"; sourceTree = "<group>"; };
@@ -121,9 +119,9 @@
 		1079FB1C22CA040C0020316E /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				1079FB1D22CA04860020316E /* FileNotebook.swift */,
 				1079FB1E22CA04860020316E /* Note.swift */,
 				1079FB1F22CA04860020316E /* NoteExtensions.swift */,
+				1079FB1D22CA04860020316E /* FileNotebook.swift */,
 				108F289C22D1125200ED70B7 /* Importance.swift */,
 			);
 			path = Models;
@@ -136,7 +134,6 @@
 				108F289E22D113A300ED70B7 /* TestImportance.swift */,
 				108F28A022D1158F00ED70B7 /* TestNoteExtensions.swift */,
 				108F28A222D115AC00ED70B7 /* TestFileNotebook.swift */,
-				10C15DB522CF8397007F5B0A /* Unit-tests.strings */,
 				10C15DAE22CF834A007F5B0A /* Info.plist */,
 			);
 			path = NotesTests;
@@ -257,7 +254,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				10C15DB622CF8397007F5B0A /* Unit-tests.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

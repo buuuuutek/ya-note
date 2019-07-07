@@ -89,6 +89,7 @@ class FileNotebook {
             createCachesDirectory()
         }
         DDLogDebug("Directory .caches exist")
+        print(cachesDirectoryPath.absoluteString)
     }
     
     

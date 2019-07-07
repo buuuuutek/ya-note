@@ -7,27 +7,89 @@
 //
 
 import XCTest
+@testable import Notes
 
 class TestFileNotebook: XCTestCase {
+    
+    var note: Note!
+    var notebook: FileNotebook!
+    var cachesDirectoryPath: URL!
+    var filePath: URL!
+    
 
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        note = Note(uid: UUID().uuidString, title: "Europe Trip", content: "1. Find friends for trip. 2. Booking hotel. 3. Let's go!", color: .yellow, importance: .usual, selfDestructionDate: Date().addingTimeInterval(50000))
+        notebook = FileNotebook()
+        cachesDirectoryPath = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
+        filePath = cachesDirectoryPath.appendingPathComponent("Notebook").appendingPathExtension("bin")
     }
-
+    
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        notebook = nil
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    // Проверка на дубли, при добавлении заметки в коллекцию в файле FileNotebook.
+    func testDuplicationWhenAddNewNote() {
+        notebook.add(note)
+        notebook.add(note)
+        let duplicateNotes = notebook.notes.filter { $0.uid == note.uid }
+        let hasDuplicatedNotes = duplicateNotes.count < 2
+        XCTAssertTrue(hasDuplicatedNotes)
     }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    // Проверка на удаление корректной заметки из коллекции в файле FileNotebook.
+    func testRemovingCorrectNotesFromCollection() {
+        notebook.add(note)
+        XCTAssertEqual(notebook.notes.count, 1)
+        notebook.remove(with: note.uid)
+        XCTAssertEqual(notebook.notes.count, 0)
     }
-
+    
+    // Проверка на корректное добавление заметки в коллекцию в файле FileNotebook.
+    func testCorrectAddingNoteInCollection() {
+        notebook.add(note)
+        XCTAssertEqual(notebook.notes.count, 1)
+    }
+    
+    // Проверка создания папки .caches, если она не существует, при сохранении файла.
+    /*func testCreatingCachesWhenSavingFile() {
+        notebook.add(note)
+        XCTAssertFalse(notebook.notes.isEmpty)
+        
+        notebook.saveToFile()
+        
+        notebook.remove(with: note.uid)
+        XCTAssertTrue(notebook.notes.isEmpty)
+        
+        notebook.loadFromFile()
+        XCTAssertFalse(notebook.notes.isEmpty)
+        
+        //var isDirectory: ObjCBool = true
+        //print(cachesDirectoryPath.absoluteString)
+        //let isCachesDirectoryCreate = FileManager. //FileManager.default.fileExists(atPath: cachesDirectoryPath.absoluteString, isDirectory: &isDirectory)
+        //XCTAssertTrue(isCachesDirectoryCreate)
+    }
+    
+    // Проверка создания файла с данными, если папка .caches существует и нормально сериализованы данные из json.
+    func testCreatingFileWhenSavingFile() {
+        notebook.add(note)
+        notebook.saveToFile()
+        let isFileExist = FileManager.default.fileExists(atPath: filePath.absoluteString)
+        XCTAssertTrue(isFileExist)
+    }
+    
+    // Проверка на существование файла при его загрузке.
+    func testFileExistWhenLoadingFile() {
+        notebook.loadFromFile()
+        let isFileExist = FileManager.default.fileExists(atPath: filePath.absoluteString)
+        XCTAssertTrue(isFileExist)
+    }
+    
+    // Проверка на корректное извлечение данных, если файл существует.
+    func testCorrectExportDataFromLoadingFile() {
+        notebook.loadFromFile()
+        XCTAssertTrue(notebook.notes.count > 0)
+    }
+    */
 }
