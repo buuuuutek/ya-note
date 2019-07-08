@@ -160,7 +160,7 @@ class FileNotebook {
     
     /// Путь к файлу записной книжки
     private var notebookFilePath: URL {
-        return cachesDirectoryPath.appendingPathComponent("Notebook").appendingPathExtension("bin")
+        return cachesDirectoryPath.appendingPathComponent("Notebook").appendingPathExtension("data")
     }
     
     

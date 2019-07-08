@@ -53,36 +53,27 @@ class TestFileNotebook: XCTestCase {
     }
     
     // Проверка создания папки .caches, если она не существует, при сохранении файла.
-    /*func testCreatingCachesWhenSavingFile() {
+    func testCreatingCachesWhenSavingFile() {
         notebook.add(note)
-        XCTAssertFalse(notebook.notes.isEmpty)
-        
         notebook.saveToFile()
         
-        notebook.remove(with: note.uid)
-        XCTAssertTrue(notebook.notes.isEmpty)
-        
-        notebook.loadFromFile()
-        XCTAssertFalse(notebook.notes.isEmpty)
-        
-        //var isDirectory: ObjCBool = true
-        //print(cachesDirectoryPath.absoluteString)
-        //let isCachesDirectoryCreate = FileManager. //FileManager.default.fileExists(atPath: cachesDirectoryPath.absoluteString, isDirectory: &isDirectory)
-        //XCTAssertTrue(isCachesDirectoryCreate)
+        var isDirectory: ObjCBool = true
+        let isCachesDirectoryCreate = FileManager.default.fileExists(atPath: cachesDirectoryPath.path, isDirectory: &isDirectory)
+        XCTAssertTrue(isCachesDirectoryCreate)
     }
     
     // Проверка создания файла с данными, если папка .caches существует и нормально сериализованы данные из json.
     func testCreatingFileWhenSavingFile() {
         notebook.add(note)
         notebook.saveToFile()
-        let isFileExist = FileManager.default.fileExists(atPath: filePath.absoluteString)
+        let isFileExist = FileManager.default.fileExists(atPath: filePath.path)
         XCTAssertTrue(isFileExist)
     }
     
     // Проверка на существование файла при его загрузке.
     func testFileExistWhenLoadingFile() {
         notebook.loadFromFile()
-        let isFileExist = FileManager.default.fileExists(atPath: filePath.absoluteString)
+        let isFileExist = FileManager.default.fileExists(atPath: filePath.path)
         XCTAssertTrue(isFileExist)
     }
     
@@ -91,5 +82,5 @@ class TestFileNotebook: XCTestCase {
         notebook.loadFromFile()
         XCTAssertTrue(notebook.notes.count > 0)
     }
-    */
+    
 }

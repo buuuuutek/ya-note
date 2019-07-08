@@ -44,12 +44,12 @@ class FileNotebook {
     /// Сохранить записную книжку в файл
     func saveToFile() {
         checkCachesDirectory()
-        
+
         guard let serializatedNotes = serializeNotes() else {
             DDLogError("Serialization data is empty")
             return
         }
-        
+
         saveToFile(content: serializatedNotes)
     }
     
@@ -89,33 +89,33 @@ class FileNotebook {
             createCachesDirectory()
         }
         DDLogDebug("Directory .caches exist")
-        print(cachesDirectoryPath.absoluteString)
     }
     
     
     /// Проверить, существует ли папка .caches
     private func cachesDirectoryNotExist() -> Bool {
         var isDirectory: ObjCBool = true
-        return !(FileManager.default.fileExists(atPath: cachesDirectoryPath.absoluteString, isDirectory: &isDirectory))
+        return !(FileManager.default.fileExists(atPath: cachesDirectoryPath.path, isDirectory: &isDirectory))
     }
     
     
     /// Проверить, существует ли файл .notebook
     private func notebookFileExist() -> Bool {
-        return FileManager.default.fileExists(atPath: notebookFilePath.absoluteString)
+        var isDirectory: ObjCBool = false
+        return FileManager.default.fileExists(atPath: notebookFilePath.path, isDirectory: &isDirectory)
     }
     
     
     /// Создать папку .caches
     private func createCachesDirectory() {
         DDLogDebug("Create new .cashes directory")
-        try? FileManager.default.createDirectory(atPath: cachesDirectoryPath.absoluteString, withIntermediateDirectories: true, attributes: nil)
+        try? FileManager.default.createDirectory(atPath: cachesDirectoryPath.path, withIntermediateDirectories: true, attributes: nil)
     }
     
     
     /// Загрузить данные из файла
     private func loadContentFromFile() -> Data? {
-        return FileManager.default.contents(atPath: notebookFilePath.absoluteString)
+        return FileManager.default.contents(atPath: notebookFilePath.path)
     }
     
     
@@ -156,6 +156,7 @@ class FileNotebook {
     
     /// Сохранить контент в файл
     private func saveToFile(content: Data) {
-        FileManager.default.createFile(atPath: notebookFilePath.absoluteString, contents: content, attributes: nil)
+        FileManager.default.createFile(atPath: notebookFilePath.path, contents: content, attributes: [:])
     }
+
 }
